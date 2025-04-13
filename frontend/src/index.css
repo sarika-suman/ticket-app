@@ -1,0 +1,488 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+/* Light Theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #2D3748;
+  --header-bg:#faf0e7;
+  --footer-bg: #212529;
+  --link-color: #0d6efd;
+  --btn-primary-bg: #0d6efd;
+  --btn-primary-text: #2D3748;
+  --btn-outline-border: #6c757d;
+}
+
+/* Dark Theme Overrides */
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --header-bg: #1e1e2f;
+  --footer-bg: #141414;
+  --link-color: #66b2ff;
+  --btn-primary-bg: #0d6efd;
+  --btn-primary-text: #ffffff;
+  --btn-outline-border: #cccccc;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding-top:110px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Header */
+.header-strip {
+  position: fixed;
+  top:0;
+  width:100%;
+  background-color: var(--header-bg);
+  padding: 25px 0;
+  z-index: 1000;
+}
+
+.ticketspage .header-strip { /* 👇 ADDED FOR TICKETS PAGE */
+  background-color: #004080 !important;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+/* Logo */
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 0 !important;
+}
+
+/* Brand Title */
+.brand-title {
+  color: #2A5C8C;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin: 0;
+  padding-left: 5px;
+}
+
+/* Navigation */
+.menu-link {
+  color: #2A5C8C !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 550;
+  font-size: 1.1rem;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu-link:hover {
+  color: #9A5406 !important;
+  text-decoration: underline;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+/* Hero Section */
+.hero-section {
+  font-family: 'Poppins', sans-serif;
+  background: #F8F9FA ;
+  padding: 100px 0;
+  color: #333;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #004080;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 1rem auto;
+  line-height: 1.7;
+  color: #444;
+}
+
+.hero-section img {
+  border: 3px solid #004080;
+  border-radius: 44px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: var(--card-bg);
+}
+
+.stats-section h3 {
+  color: #001F3F;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Floating Cards */
+.card1-floating {
+  width: 100px;
+  top: 20px;
+  right: -30px;
+}
+
+.card2-floating {
+  width: 120px;
+  bottom: -40px;
+  left: 30px;
+}
+
+/* Axis Details Card */
+.axis-details {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.axis-details p {
+  margin-bottom: 0.5rem;
+}
+
+.image-container {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  height: 100%;
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.card-title {
+  color: #2A5C8C;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg) !important;
+  color: var(--text-color);
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #4CAF50;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #2D3748;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1a202c;
+  transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+  background-color: #2D3748;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #1a202c;
+  transform: translateY(-2px);
+}
+
+/* Borders and shadows */
+.border,
+.shadow-sm {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.login-btn {
+  background-color: #f49424;
+  color: #2D3748;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #5c8ed8;
+}
+
+.menu-box .d-flex {
+  gap: 50px;
+}
+
+.left-split-heading {
+  color: #192a47;
+  font-size: 4rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.left-split-paragraph {
+  color: #000000;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.how-it-works-section h2 {
+  font-size: 3.8rem;
+  color: #2D3748 !important;
+  font-weight: 700;
+  text-align: left;
+}
+
+.how-it-works-section .image-step {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-it-works-section .image-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works-section .image-step img {
+  border-radius: 0.75rem;
+  width: 100%;
+  height: auto;
+}
+
+.how-it-works-section .image-step p {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+}
+
+.how-it-works-section p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.how-it-works-section .btn-primary {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.how-it-works-section .btn-primary:hover {
+  background-color: #084298;
+}
+
+#how-it-works .row {
+  gap: 2rem;
+}
+
+#how-it-works img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.stats-section h2 {
+  font-size: 3.0rem;
+  color: #001F3F;
+  font-weight: bold;
+}
+
+/* Ticket Dashboard */
+.ticket-heading {
+  color: #1d2a3e;
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.ticket-scroll-area {
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: #faf0e7;
+}
+
+.ticket-card {
+  transition: transform 0.2s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.4em 0.6em;
+}
+
+.bg-primary {
+  background-color: #0d6efd !important;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.bg-info {
+  background-color: #0dcaf0 !important;
+}
+
+.card h5 {
+  font-size: 1.1rem;
+}
+
+.card .display-4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #212529;
+  color: #ccc;
+}
+
+footer h5 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .header-strip {
+    text-align: center;
+  }
+
+  .menu-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ticket-scroll-area {
+    max-height: none;
+  }
+
+  .card .display-4 {
+    font-size: 2rem;
+  }
+}
+
+/* Pie Chart Container */
+.card.bg-white {
+  background-color: #fff !important;
+}
+
+/* Statistic Cards Styling */
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* CTA Button Container Fix */
+.cta-buttons {
+  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+ 
